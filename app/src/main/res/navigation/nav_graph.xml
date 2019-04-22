@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_graph" app:startDestination="@id/todayFragment">
+
+    <fragment android:id="@+id/todayFragment"
+              android:name="com.awsm.forecastapp.fragments.TodayFragment"
+              app:popUpToInclusive="true"
+              android:label="TodayFragment">
+
+    </fragment>
+    <fragment android:id="@+id/sevenDayForcastFragment"
+              android:name="com.awsm.forecastapp.fragments.SevenDayForcastFragment"
+              app:popUpToInclusive="true"
+              android:label="SevenDayForcastFragment">
+
+    </fragment>
+    <fragment android:id="@+id/settingFragment"
+              android:name="com.awsm.forecastapp.fragments.SettingFragment"
+              app:popUpToInclusive="true"
+              android:label="SettingFragment"/>
+</navigation>
