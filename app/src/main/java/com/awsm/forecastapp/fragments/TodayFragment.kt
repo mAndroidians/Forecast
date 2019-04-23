@@ -18,7 +18,7 @@ import javax.inject.Inject
 class TodayFragment : DaggerFragment() {
 
 
-  // @Inject lateinit var viewModelProvider: ViewModelProvider.Factory
+    @Inject lateinit var viewModelProvider: ViewModelProvider.Factory
     @Inject lateinit var gson: Gson
 
 
@@ -35,7 +35,7 @@ class TodayFragment : DaggerFragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-     //    viewModel = ViewModelProviders.of(this, viewModelProvider).get(TodayViewModel::class.java)
+         viewModel = ViewModelProviders.of(this, viewModelProvider).get(TodayViewModel::class.java)
         // binding.vm = viewModel
 
          // TODO: Use the ViewModel

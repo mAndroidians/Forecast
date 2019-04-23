@@ -3,11 +3,11 @@ package com.awsm.forecastapp.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.awsm.forecastapp.di.DaggerViewModelFactory
+import com.awsm.forecastapp.di.SmartCareViewModelFactory
 import com.awsm.forecastapp.di.ViewModelKey
 import com.awsm.forecastapp.fragments.TodayViewModel
 import dagger.Binds
 import dagger.Module
-import dagger.Provides
 import dagger.multibindings.IntoMap
 
 
@@ -19,6 +19,6 @@ abstract class ViewModelBuilderModule {
 	internal abstract fun bindTodayViewModel(todayViewModel: TodayViewModel): ViewModel
 
 	@Binds
-	internal abstract fun bindViewModelFactory(viewModelFactory: DaggerViewModelFactory): ViewModelProvider.Factory
+	internal abstract fun bindViewModelFactory(viewModelFactory: SmartCareViewModelFactory): ViewModelProvider.Factory
 
 }

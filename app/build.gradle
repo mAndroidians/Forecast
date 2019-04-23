@@ -30,6 +30,13 @@ android {
     dataBinding{
         enabled = true
     }
+    configurations {
+        ktlint
+    }
+
+    lintOptions {
+        abortOnError false
+    }
     flavorDimensions "buildType"
 
     productFlavors {
