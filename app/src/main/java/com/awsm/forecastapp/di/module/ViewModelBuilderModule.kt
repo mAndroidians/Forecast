@@ -26,10 +26,4 @@ abstract class ViewModelBuilderModule {
 	@Binds
 	internal abstract fun bindViewModelFactory(viewModelFactory: DaggerViewModelFactory): ViewModelProvider.Factory
 
-
-
-
-
-
-
 }
