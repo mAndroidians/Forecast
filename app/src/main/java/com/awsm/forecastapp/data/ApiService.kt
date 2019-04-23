@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2019. REDIFLEX CONSULTING PRIVATE LIMITED
- */
-
 package com.awsm.forecastapp.data
 
 import androidx.lifecycle.LiveData

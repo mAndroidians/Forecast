@@ -1,4 +1,3 @@
-
 package com.awsm.forecastapp.data.util
 
 import androidx.lifecycle.LiveData

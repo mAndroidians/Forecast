@@ -1,5 +1,3 @@
-
-
 package com.awsm.forecastapp.util
 
 import android.app.Application

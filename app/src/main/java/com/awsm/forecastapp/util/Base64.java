@@ -1,4 +1,3 @@
-
 package com.awsm.forecastapp.util;
 
 /**

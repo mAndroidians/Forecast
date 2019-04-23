@@ -1,5 +1,3 @@
-
-
 package health.smartcare.app.data.util
 
 import android.os.Handler

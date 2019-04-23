@@ -1,4 +1,3 @@
-
 package com.awsm.forecastapp.util;
 
 import android.widget.EditText;

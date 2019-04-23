@@ -1,7 +1,3 @@
-/*
- * Copyright (c) 2019. REDIFLEX CONSULTING PRIVATE LIMITED
- */
-
 package com.awsm.forecastapp.di.module
 
 import androidx.lifecycle.ViewModel
@@ -19,7 +15,6 @@ import dagger.multibindings.IntoMap
 abstract class ViewModelBuilderModule {
 	@Binds
 	@IntoMap
-	@Provides
 	@ViewModelKey(TodayViewModel::class )
 	internal abstract fun bindTodayViewModel(todayViewModel: TodayViewModel): ViewModel
 
