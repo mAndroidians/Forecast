@@ -5,11 +5,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 import com.awsm.forecastapp.R
+import com.awsm.forecastapp.data.util.Status
 import com.awsm.forecastapp.databinding.TodayFragmentBinding
+import com.awsm.forecastapp.util.showToast
 import com.google.gson.Gson
 import dagger.android.support.DaggerFragment
 
@@ -40,35 +43,28 @@ class TodayFragment : DaggerFragment() {
 
          // TODO: Use the ViewModel
         // setObservers()
-    }
 
 
-
-
-/*
-
-    private fun setObservers() {
-        viewModel.currentWeather.observe(this, Observer {
-
-            it?.let {
-                when (it.status) {
-                    Status.LOADING -> {
-                        binding.progressBar.showProgressBar(true, activity?.window!!)
-
+        viewModel.getUserInformation()
+            .observe(this, Observer {
+                when {
+                    it?.status == Status.ERROR -> {
+                      //  binding.progressBar.showProgressBar(false, activity?.window!!)
+                        binding.root.showToast("Unable to fetch data from server.")
                     }
-                    Status.SUCCESS -> {
-                        binding.progressBar.showProgressBar(false, activity?.window!!)
-
+                    it?.status == Status.SUCCESS -> {
+                      //  binding.progressBar.showProgressBar(false, activity?.window!!)
+                        if (it.data != null) {
+                            viewModel.setInformation(it.data)
+                        }
                     }
-                    Status.ERROR -> {
-                        binding.progressBar.showProgressBar(false, activity?.window!!)
-
+                    it?.status == Status.LOADING -> {
+                       // binding.progressBar.showProgressBar(true, activity?.window!!)
                     }
                 }
-            }
-        })
+            })
 
 
-    }*/
+    }
 
 }

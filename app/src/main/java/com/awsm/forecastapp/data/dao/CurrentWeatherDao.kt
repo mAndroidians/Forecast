@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import com.awsm.forecastapp.data.entity.CurrentWeatherEntity
+import com.awsm.forecastapp.data.remote.CurrentWeatherEntity
 
 @Dao
 interface CurrentWeatherDao {

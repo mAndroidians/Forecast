@@ -1,9 +1,12 @@
 package com.awsm.forecastapp.data.remote
 
+import androidx.room.Embedded
 import com.google.gson.annotations.SerializedName
 
 data class CurrentResp(
     val cloud: Int,
+    @Embedded
+    @SerializedName("condition")
     val condition: Condition,
     @SerializedName("feelslike_c")
     val feelslikeC: Double,
