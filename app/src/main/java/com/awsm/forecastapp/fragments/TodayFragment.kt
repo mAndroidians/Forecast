@@ -10,8 +10,13 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 
 import com.awsm.forecastapp.R
+import com.awsm.forecastapp.data.util.ApiEmptyResponse
+import com.awsm.forecastapp.data.util.ApiErrorResponse
+import com.awsm.forecastapp.data.util.ApiSuccessResponse
 import com.awsm.forecastapp.data.util.Status
 import com.awsm.forecastapp.databinding.TodayFragmentBinding
+import com.awsm.forecastapp.util.showProgressBar
+import com.awsm.forecastapp.util.showSnack
 import com.awsm.forecastapp.util.showToast
 import com.google.gson.Gson
 import dagger.android.support.DaggerFragment
@@ -39,29 +44,27 @@ class TodayFragment : DaggerFragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
          viewModel = ViewModelProviders.of(this, viewModelProvider).get(TodayViewModel::class.java)
-        // binding.vm = viewModel
+         binding.vm = viewModel
 
-         // TODO: Use the ViewModel
-        // setObservers()
-
-
-        viewModel.getUserInformation()
+          viewModel.getUserInformation()
             .observe(this, Observer {
-                when {
-                    it?.status == Status.ERROR -> {
-                      //  binding.progressBar.showProgressBar(false, activity?.window!!)
-                        binding.root.showToast("Unable to fetch data from server.")
-                    }
-                    it?.status == Status.SUCCESS -> {
-                      //  binding.progressBar.showProgressBar(false, activity?.window!!)
-                        if (it.data != null) {
-                            viewModel.setInformation(it.data)
-                        }
-                    }
-                    it?.status == Status.LOADING -> {
-                       // binding.progressBar.showProgressBar(true, activity?.window!!)
-                    }
-                }
+               when(it){
+                   is ApiErrorResponse ->{
+                       binding.progressBar.showProgressBar(false,activity?.window!!)
+                       binding.root.showSnack("No data")
+                   }
+                   is ApiEmptyResponse ->{
+                       binding.progressBar.showProgressBar(false,activity?.window!!)
+
+                       binding.root.showSnack("No data")
+                   }
+                   is ApiSuccessResponse ->{
+                       binding.progressBar.showProgressBar(false,activity?.window!!)
+
+                       viewModel.setInformation(it.body.location,it.body.current)
+                   }
+               }
+
             })
 
 

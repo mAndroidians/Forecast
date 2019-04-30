@@ -16,7 +16,5 @@ data class CurrentWeatherEntity(
     @Embedded
     @field:SerializedName("current")
     val current: CurrentResp
-
 )
 
-//data class CurrentWeatherEntity(val currentWeatherEntry: CurrentWeatherEntity)

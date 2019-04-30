@@ -2,7 +2,6 @@ package com.awsm.forecastapp.data
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
-import androidx.room.TypeConverter
 import androidx.room.TypeConverters
 import com.awsm.forecastapp.data.dao.CurrentWeatherDao
 import com.awsm.forecastapp.data.remote.CurrentWeatherEntity

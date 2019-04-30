@@ -3,6 +3,7 @@ package com.awsm.forecastapp.data
 import androidx.lifecycle.LiveData
 import com.awsm.forecastapp.BuildConfig
 import com.awsm.forecastapp.data.remote.CurrentWeatherEntity
+import com.awsm.forecastapp.data.remote.CurrentWeatherResponse
 import com.awsm.forecastapp.data.util.ApiResponse
 import retrofit2.http.GET
 
@@ -20,7 +21,7 @@ interface ApiService {
 
 	@GET("current.json?key=3825f49c15d84d0f8fd61234192104&q=Delhi")
 	fun getCurrentWeather():
-			LiveData<ApiResponse<CurrentWeatherEntity>>
+			LiveData<ApiResponse<CurrentWeatherResponse>>
 
 
 }
